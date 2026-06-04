@@ -168,7 +168,7 @@
                                     <!-- Slides Container -->
                                     <div id="slides-container" class="absolute inset-0">
                                         <!-- Slide 1 -->
-                                        <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10">
+                                        <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
                                             <img id="hero-img-slide-1" src="images/Gemini_Generated_Image_4dyiym4dyiym4dyi2_2.jpg" alt="Office Interior" class="w-full h-full object-cover object-center mix-blend-lighten opacity-40 transition-transform duration-[2s] ease-in-out hover:scale-[1.03]">
                                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent p-6 pt-12 text-white flex flex-col justify-end z-20">
                                                 <span class="text-[10px] tracking-widest font-bold uppercase text-stone-400 mb-1">坂田 徹 (社会保険労務士)</span>
@@ -176,8 +176,8 @@
                                             </div>
                                         </div>
                                         <!-- Slide 2 -->
-                                        <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
-                                            <img id="hero-img-slide-2" src="images/Gemini_Generated_Image_hffck6hffck6hffc.png" alt="Sakata Representative" class="w-full h-full object-contain object-bottom object-right p-4 lg:p-8 transition-transform duration-[2s] ease-in-out hover:scale-[1.03]">
+                                        <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10">
+                                            <img id="hero-img-slide-2" src="Gemini_Generated_Image_hffck6hffck6hffc.png" alt="Sakata Representative" class="w-full h-full object-cover object-[58%_50%] transition-transform duration-[2s] ease-in-out hover:scale-[1.03]">
                                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent p-6 pt-12 text-white flex flex-col justify-end z-20">
                                                 <span class="text-[10px] tracking-widest font-bold uppercase text-stone-400 mb-1">SAKATA OFFICE Tokyo</span>
                                                 <span class="text-xs font-serif-jp font-light opacity-90">代表肖像 (丸の内コンサルティングスペース)</span>
@@ -208,8 +208,8 @@
 
                                     <!-- Dot Indicators -->
                                     <div id="dot-indicators" class="absolute top-4 left-4 z-30 flex space-x-1.5 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/10">
-                                        <button class="dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white scale-125"></button>
                                         <button class="dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/40"></button>
+                                        <button class="dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white scale-125"></button>
                                         <button class="dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/40"></button>
                                     </div>
 
@@ -614,7 +614,7 @@
         });
 
         // Carousel / Slideshow Controller
-        let currentSlide = 0;
+        let currentSlide = 1;
         const slides = document.querySelectorAll('#slides-container .slide');
         const dots = document.querySelectorAll('#dot-indicators .dot');
 
