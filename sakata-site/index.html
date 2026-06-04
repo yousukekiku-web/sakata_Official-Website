@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>坂田徹社労士事務所</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            950: '#090909',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Global Styles & Custom Animations -->
+    <style>
+        .font-serif-jp { font-family: 'Noto Serif JP', serif; }
+        .font-sans-jp { font-family: 'Noto Sans JP', sans-serif; }
+        .font-display { font-family: 'Playfair Display', serif; }
+        
+        /* Marquee Animation */
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Grid Background pattern */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(26, 25, 23, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(26, 25, 23, 0.02) 1px, transparent 1px);
+        }
+
+        /* */
+        /* Scroll Reveal Transitions - Corrected from 1000s to 1.2s for instantaneous elegant reveal */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(3rem);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-property: transform, opacity;
+        }
+        .reveal-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#FDFCF8] text-[#1a1917] font-sans selection:bg-stone-900 selection:text-white overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 py-8 bg-transparent transition-all duration-500">
+        <div class="container mx-auto px-6 md:px-12 flex items-center justify-between">
+            <a href="#" class="relative group z-50">
+                <span class="font-serif-jp text-xl md:text-2xl font-semibold tracking-tight text-stone-900">坂田徹社労士事務所</span>
+                <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-stone-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-10">
+                <a href="#about" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">About</a>
+                <a href="#services" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Services</a>
+                <a href="#insights" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Insights</a>
+                <a href="#contact" class="text-xs font-semibold tracking-widest uppercase text-stone-600 hover:text-stone-900 transition-colors">Contact</a>
+                <a href="#contact" class="bg-stone-900 text-[#FDFCF8] px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider hover:bg-stone-700 transition-colors flex items-center gap-2">
+                    Consultation <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden z-50 p-2 text-stone-900 focus:outline-none">
+                <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#FDFCF8] z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-center items-center">
+        <nav class="flex flex-col space-y-8 text-center">
+            <a href="#about" class="menu-link font-serif-jp text-3xl text-stone-900 hover:text-stone-500 transition-colors">About</a>
+            <a href="#services" class="menu-link font-serif-jp text-3xl text-stone-900 hover:text-stone-500 transition-colors">Services</a>
+            <a href="#insights" class="menu-link font-serif-jp text-3xl text-stone-900 hover:text-stone-500 transition-colors">Insights</a>
+            <a href="#contact" class="menu-link font-serif-jp text-3xl text-stone-900 hover:text-stone-500 transition-colors">Contact</a>
+            <a href="#contact" class="menu-link bg-stone-900 text-[#FDFCF8] px-8 py-4 rounded-full text-sm font-semibold tracking-wider mt-4 inline-block">
+                先行無料相談の予約
+            </a>
+        </nav>
+    </div>
+
+    <!-- -->
+    <main class="overflow-x-hidden">
+        <!-- Asymmetric Split Hero Section -->
+        <section class="relative min-h-screen flex flex-col justify-center bg-grid pt-20">
+            <!-- Right dark sidebar for desktops -->
+            <div class="absolute inset-y-0 right-0 w-full md:w-1/2 bg-[#090909] hidden md:block"></div>
+            
+            <div class="container mx-auto px-6 md:px-12 relative z-10 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[85vh]">
+                    
+                    <!-- Left Column (Editorial text copy) -->
+                    <div class="flex flex-col justify-start py-12 md:py-20 pr-2 md:pr-4 lg:pr-6">
+                        <div class="reveal-item" style="transition-delay: 100ms;">
+                            <p class="text-xs font-bold tracking-widest text-[#D93535] mb-6 uppercase">
+                                Labor & Social Security Attorneys — 2026.10 New Launch
+                            </p>
+                        </div>
+                        
+                        <!-- キャッチコピーの完成された字組み（19:11基準・ベースライン底辺完全同期） -->
+                        <div class="reveal-item" style="transition-delay: 200ms;">
+                            <h1 class="font-serif-jp text-5xl sm:text-6xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-light leading-[1.15] text-stone-900 mb-8 break-keep">
+                                <span class="inline-flex items-baseline">
+                                    組織の
+                                    <span class="italic font-serif-jp text-[#D93535] text-[1.3em] inline-block align-baseline leading-none">核</span>
+                                    となり、
+                                </span>
+                                <br>
+                                <span class="inline-block">
+                                    未来を<span class="border-b-[4px] border-stone-900 pb-1">設計</span>する。
+                                </span>
+                            </h1>
+                        </div>
+
+                        <!-- 改善された本文段落 ("す。" のはみ出し防止対応) -->
+                        <div class="reveal-item max-w-xl pr-2 md:pr-4" style="transition-delay: 400ms;">
+                            <p class="font-sans-jp text-sm md:text-base text-stone-600 leading-relaxed font-light mb-12 tracking-[-0.015em] text-justify">
+                                私たちは、単なる書類手続きの代行者ではありません。
+                                法務の絶対的な専門性と人間中心の組織心理を高度に融合させ、
+                                企業の持続可能な成長のための「美しく、強固な基礎（Solid Foundation）」を構築します。
+                            </p>
+                        </div>
+                        
+                        <div class="reveal-item" style="transition-delay: 600ms;">
+                            <div class="flex flex-wrap items-center gap-6">
+                                <a href="#about" class="flex items-center gap-4 group cursor-pointer">
+                                    <div class="w-12 h-12 rounded-full border border-stone-300 flex items-center justify-center group-hover:bg-stone-900 group-hover:border-stone-900 transition-all duration-300">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-stone-900 group-hover:text-white transition-colors"></i>
+                                    </div>
+                                    <span class="font-semibold text-sm tracking-wider font-sans-jp">私たちの理念</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- -->
+                    <!-- Right Column (Representative Portrait Slideshow) -->
+                    <div class="relative flex items-center justify-center bg-[#090909] md:bg-transparent -mx-6 px-6 md:mx-0 md:px-0 py-12 md:py-0">
+                        <div class="w-full h-full max-w-lg md:max-w-full flex items-center justify-center relative">
+                          
+                            <!-- Subtle Glow behind portrait -->
+                            <div class="absolute w-[80%] h-[80%] bg-stone-900/40 rounded-full blur-[120px] pointer-events-none"></div>
+
+                            <div class="reveal-item w-full h-full flex justify-center items-center" style="transition-delay: 300ms;">
+                                <div class="relative w-full aspect-[4/3] md:aspect-[3/4] overflow-hidden bg-stone-950 shadow-2xl border border-stone-900/40">
+                                    
+                                    <!-- Slides Container -->
+                                    <div id="slides-container" class="absolute inset-0">
+                                        <!-- Slide 1 -->
+                                        <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10">
+                                            <img id="hero-img-slide-1" src="./Gemini_Generated_Image_4dyiym4dyiym4dyi2_2.jpg" alt="代表肖像" class="w-full h-full object-cover transition-transform duration-[2s] ease-in-out hover:scale-[1.03]">
+                                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent p-6 pt-12 text-white flex flex-col justify-end z-20">
+                                                <span class="text-[10px] tracking-widest font-bold uppercase text-stone-400 mb-1">坂田 徹 (社会保険労務士)</span>
+                                                <span class="text-xs font-serif-jp font-light opacity-90">代表肖像</span>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 2 -->
+                                        <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+                                            <img id="hero-img-slide-2" src="./Gemini_Generated_Image_hffck6hffck6hffc.png" alt="代表肖像 (丸の内コンサルティングスペース)" class="w-full h-full object-cover transition-transform duration-[2s] ease-in-out hover:scale-[1.03]">
+                                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent p-6 pt-12 text-white flex flex-col justify-end z-20">
+                                                <span class="text-[10px] tracking-widest font-bold uppercase text-stone-400 mb-1">SAKATA OFFICE Tokyo</span>
+                                                <span class="text-xs font-serif-jp font-light opacity-90">代表肖像 (丸の内コンサルティングスペース)</span>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 3 -->
+                                        <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+                                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" alt="確かな成長の道標" class="w-full h-full object-cover transition-transform duration-[2s] ease-in-out hover:scale-[1.03]">
+                                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent p-6 pt-12 text-white flex flex-col justify-end z-20">
+                                                <span class="text-[10px] tracking-widest font-bold uppercase text-stone-400 mb-1">Urban Modern Architecture</span>
+                                                <span class="text-xs font-serif-jp font-light opacity-90">確かな成長の道標</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Deep black soft overlay -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent opacity-55 pointer-events-none"></div>
+
+                                    <!-- Manual Slide Controls -->
+                                    <div class="absolute top-4 right-4 z-30 flex space-x-2">
+                                        <button id="prev-slide" class="w-8 h-8 rounded-full border border-white/20 bg-black/40 hover:bg-black/80 text-white flex items-center justify-center transition-all backdrop-blur-sm">
+                                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                                        </button>
+                                        <button id="next-slide" class="w-8 h-8 rounded-full border border-white/20 bg-black/40 hover:bg-black/80 text-white flex items-center justify-center transition-all backdrop-blur-sm">
+                                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        </button>
+                                    </div>
+
+                                    <!-- Dot Indicators -->
+                                    <div id="dot-indicators" class="absolute top-4 left-4 z-30 flex space-x-1.5 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/10">
+                                        <button class="dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white scale-125"></button>
+                                        <button class="dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/40"></button>
+                                        <button class="dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-white/40"></button>
+                                    </div>
+
+                                </div>
+
+                                <!-- Framed badge -->
+                                <div class="absolute -bottom-4 -left-4 bg-[#FDFCF8] p-5 shadow-2xl border border-stone-200/50 hidden md:block z-20">
+                                    <div class="flex flex-col">
+                                        <span class="font-display text-2xl font-semibold tracking-tight text-stone-900">Est. 2026</span>
+                                        <span class="text-[10px] font-bold text-[#D93535] uppercase tracking-widest mt-1">Launch October 2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Text Tape -->
+        <div class="overflow-hidden whitespace-nowrap bg-stone-950 text-white py-5 flex border-y border-stone-800">
+            <div class="animate-marquee flex space-x-12">
+                <span class="text-xs md:text-sm font-medium tracking-widest uppercase opacity-80 font-sans-jp">Strategic HR Planning — SOLID FOUNDATION FOR YOUR BUSINESS</span>
+                <span class="text-xs md:text-sm font-medium tracking-widest uppercase opacity-80 font-sans-jp">Legal Compliance — SOLID FOUNDATION FOR YOUR BUSINESS</span>
+                <span class="text-xs md:text-sm font-medium tracking-widest uppercase opacity-80 font-sans-jp">Organizational design — SOLID FOUNDATION FOR YOUR BUSINESS</span>
+                <span class="text-xs md:text-sm font-medium tracking-widest uppercase opacity-80 font-sans-jp">Strategic HR Planning — SOLID FOUNDATION FOR YOUR BUSINESS</span>
+                <span class="text-xs md:text-sm font-medium tracking-widest uppercase opacity-80 font-sans-jp">Legal Compliance — SOLID FOUNDATION FOR YOUR BUSINESS</span>
+                <span class="text-xs md:text-sm font-medium tracking-widest uppercase opacity-80 font-sans-jp">Organizational design — SOLID FOUNDATION FOR YOUR BUSINESS</span>
+            </div>
+        </div>
+
+        <!-- -->
+        <!-- About / Philosophy Section -->
+        <section id="about" class="py-24 md:py-40 px-6 md:px-12 bg-[#F6F5F0] border-b border-stone-200">
+            <div class="container mx-auto max-w-7xl">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+                    <div class="md:col-span-4">
+                        <div class="reveal-item">
+                            <span class="block w-12 h-[1px] bg-stone-900 mb-6"></span>
+                            <h2 class="font-display text-4xl md:text-5xl font-light">Solid & Clean</h2>
+                            <p class="text-stone-400 text-xs tracking-widest mt-2 uppercase">Core Philosophy</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8">
+                        <div class="reveal-item" style="transition-delay: 200ms;">
+                            <h3 class="font-serif-jp text-2xl md:text-4xl leading-relaxed mb-10 text-stone-900 font-light">
+                                2026年10月、新たな時代の幕開け。<br>
+                                確かな実務経験とともに、一社一社の未来を支える。
+                            </h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div class="reveal-item" style="transition-delay: 300ms;">
+                                <p class="text-stone-600 leading-8 text-justify font-sans-jp font-light text-base">
+                                    現代のビジネス環境は急速に変化しています。法令遵守（コンプライアンス）は企業の守りの要ですが、それと同時に攻めの基盤でもあります。2026年10月、長年の実務経験を経て独立するにあたり、私たちは単なる「手続きの代行」を超え、経営者の真のパートナーとなる新規事業を始動します。
+                                </p>
+                            </div>
+                            <div class="reveal-item" style="transition-delay: 400ms;">
+                                <p class="text-stone-600 leading-8 text-justify font-sans-jp font-light text-base">
+                                    最新の法改正へ迅速に対応するだけでなく、その先にある「人と組織の最適な関係」をクリアで透明性の高いコミュニケーションで伴走します。揺るぎない専門知識を軸に、納得感と信頼関係をベースに共に前進できる環境設計を誠実にサポートいたします。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 px-6 md:px-12 bg-[#FDFCF8]">
+            <div class="container mx-auto max-w-7xl">
+                <div class="reveal-item mb-20 flex justify-between items-end border-b border-stone-200 pb-8">
+                    <h2 class="font-display text-5xl md:text-7xl font-light">Services</h2>
+                    <span class="hidden md:block text-stone-400 font-serif-jp tracking-widest text-sm">提供する価値</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-stone-200">
+                    
+                    <!-- Service 1 -->
+                    <div class="reveal-item group relative border-r border-b border-stone-200 p-8 md:p-12 hover:bg-stone-50 transition-colors duration-500 h-full flex flex-col justify-between min-h-[400px]" style="transition-delay: 0ms;">
+                        <div>
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-display text-xl text-stone-300 group-hover:text-stone-900 transition-colors duration-500">01</span>
+                                <div class="text-stone-300 group-hover:text-stone-900 transition-colors duration-500">
+                                    <i data-lucide="users" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif-jp text-2xl font-medium mb-6 leading-tight">労務コンサルティング</h3>
+                            <p class="text-stone-500 text-sm leading-7 group-hover:text-stone-700 transition-colors duration-500 font-light">組織の健全な成長を支える、戦略的な就業規則の策定 and 運用サポート。</p>
+                        </div>
+                        <div class="mt-8 pt-8 border-t border-stone-100 group-hover:border-stone-200 transition-colors">
+                            <button onclick="handleServiceBenefit('労務コンサルティング')" class="w-full text-center flex items-center justify-center text-xs font-semibold tracking-wider text-stone-900 transition-all duration-300 py-3 px-4 rounded-full bg-stone-100 hover:bg-stone-900 hover:text-white border border-stone-300/60 shadow-sm">
+                                ✨ メリットをAI分析
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="reveal-item group relative border-r border-b border-stone-200 p-8 md:p-12 hover:bg-stone-50 transition-colors duration-500 h-full flex flex-col justify-between min-h-[400px]" style="transition-delay: 100ms;">
+                        <div>
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-display text-xl text-stone-300 group-hover:text-stone-900 transition-colors duration-500">02</span>
+                                <div class="text-stone-300 group-hover:text-stone-900 transition-colors duration-500">
+                                    <i data-lucide="layers" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif-jp text-2xl font-medium mb-6 leading-tight">人事制度設計</h3>
+                            <p class="text-stone-500 text-sm leading-7 group-hover:text-stone-700 transition-colors duration-500 font-light">従業員のエンゲージメントを高め、企業のビジョンを実現する評価制度。</p>
+                        </div>
+                        <div class="mt-8 pt-8 border-t border-stone-100 group-hover:border-stone-200 transition-colors">
+                            <button onclick="handleServiceBenefit('人事制度設計')" class="w-full text-center flex items-center justify-center text-xs font-semibold tracking-wider text-stone-900 transition-all duration-300 py-3 px-4 rounded-full bg-stone-100 hover:bg-stone-900 hover:text-white border border-stone-300/60 shadow-sm">
+                                ✨ メリットをAI分析
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="reveal-item group relative border-r border-b border-stone-200 p-8 md:p-12 hover:bg-stone-50 transition-colors duration-500 h-full flex flex-col justify-between min-h-[400px]" style="transition-delay: 200ms;">
+                        <div>
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-display text-xl text-stone-300 group-hover:text-stone-900 transition-colors duration-500">03</span>
+                                <div class="text-stone-300 group-hover:text-stone-900 transition-colors duration-500">
+                                    <i data-lucide="file-text" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif-jp text-2xl font-medium mb-6 leading-tight">社会保険・給与計算</h3>
+                            <p class="text-stone-500 text-sm leading-7 group-hover:text-stone-700 transition-colors duration-500 font-light">正確性とスピードを兼ね備えた、デジタル主導のアウトソーシング。</p>
+                        </div>
+                        <div class="mt-8 pt-8 border-t border-stone-100 group-hover:border-stone-200 transition-colors">
+                            <button onclick="handleServiceBenefit('社会保険・給与計算')" class="w-full text-center flex items-center justify-center text-xs font-semibold tracking-wider text-stone-900 transition-all duration-300 py-3 px-4 rounded-full bg-stone-100 hover:bg-stone-900 hover:text-white border border-stone-300/60 shadow-sm">
+                                ✨ メリットをAI分析
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="reveal-item group relative border-r border-b border-stone-200 p-8 md:p-12 hover:bg-stone-50 transition-colors duration-500 h-full flex flex-col justify-between min-h-[400px]" style="transition-delay: 300ms;">
+                        <div>
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-display text-xl text-stone-300 group-hover:text-stone-900 transition-colors duration-500">04</span>
+                                <div class="text-stone-300 group-hover:text-stone-900 transition-colors duration-500">
+                                    <i data-lucide="award" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-serif-jp text-2xl font-medium mb-6 leading-tight">助成金申請代行</h3>
+                            <p class="text-stone-500 text-sm leading-7 group-hover:text-stone-700 transition-colors duration-500 font-light">企業の挑戦を後押しするための、最適な助成金の選定と申請支援。</p>
+                        </div>
+                        <div class="mt-8 pt-8 border-t border-stone-100 group-hover:border-stone-200 transition-colors">
+                            <button onclick="handleServiceBenefit('助成金申請代行')" class="w-full text-center flex items-center justify-center text-xs font-semibold tracking-wider text-stone-900 transition-all duration-300 py-3 px-4 rounded-full bg-stone-100 hover:bg-stone-900 hover:text-white border border-stone-300/60 shadow-sm">
+                                ✨ メリットをAI分析
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- -->
+        <!-- Numeric / Trust Section -->
+        <section class="py-24 bg-stone-950 text-[#FDFCF8]">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                    <div class="reveal-item">
+                        <div class="border-t border-stone-800 pt-8">
+                            <span class="block text-5xl md:text-7xl font-display mb-4 font-light">200<span class="text-2xl text-stone-500">+社</span></span>
+                            <p class="text-stone-400 font-sans-jp text-xs tracking-widest uppercase font-medium">代表累計支援実績</p>
+                        </div>
+                    </div>
+                    <div class="reveal-item" style="transition-delay: 200ms;">
+                        <div class="border-t border-stone-800 pt-8">
+                            <span class="block text-5xl md:text-7xl font-display mb-4">15<span class="text-2xl text-stone-500">年</span></span>
+                            <p class="text-stone-400 font-sans-jp text-xs tracking-widest uppercase font-medium">代表業界経験年数</p>
+                        </div>
+                    </div>
+                    <div class="reveal-item" style="transition-delay: 400ms;">
+                        <div class="border-t border-stone-800 pt-8">
+                            <span class="block text-5xl md:text-7xl font-display mb-4">2026<span class="text-2xl text-stone-500">.10</span></span>
+                            <p class="text-stone-400 font-sans-jp text-xs tracking-widest uppercase font-medium">独立開業・新事業体制</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights / News -->
+        <section id="insights" class="py-24 px-6 md:px-12 bg-[#FDFCF8]">
+            <div class="container mx-auto max-w-7xl">
+                <div class="reveal-item mb-16">
+                    <h2 class="font-display text-4xl mb-2 font-light">Insights</h2>
+                    <p class="text-stone-500 text-xs tracking-widest font-sans-jp uppercase">最新の法改正情報・ニュース</p>
+                </div>
+
+                <div class="space-y-0">
+                    
+                    <!-- Insight item 1 -->
+                    <div class="reveal-item group block py-8 border-b border-stone-200 hover:bg-stone-50/50 transition-colors flex flex-col md:flex-row md:items-center justify-between" style="transition-delay: 0ms;">
+                        <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12 w-full md:w-3/4">
+                            <span class="font-mono text-sm text-stone-400">2026.04.15</span>
+                            <span class="text-[10px] tracking-widest font-bold border border-stone-300 px-2 py-0.5 rounded text-stone-500 uppercase">法改正</span>
+                            <h3 class="text-lg md:text-xl font-medium font-serif-jp group-hover:text-stone-600 transition-colors">
+                                労働基準法施行規則の改正による労働条件明示ルールの変更点について
+                            </h3>
+                        </div>
+                        <div class="mt-4 md:mt-0 opacity-100 flex gap-4 items-center justify-end w-full md:w-auto">
+                            <button onclick="handleInsightSummary('労働基準法施行規則の改正による労働条件明示ルールの変更点について')" class="text-xs font-semibold px-4 py-2 rounded-full bg-stone-900 text-[#FDFCF8] hover:bg-stone-700 transition-colors flex items-center whitespace-nowrap shadow-sm">
+                                ✨ AI影響分析
+                            </button>
+                            <a href="#" class="opacity-0 group-hover:opacity-100 transform translate-x-[-20px] group-hover:translate-x-0 transition-all duration-300 hidden md:block">
+                                <i data-lucide="arrow-right" class="text-stone-900"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Insight item 2 -->
+                    <div class="reveal-item group block py-8 border-b border-stone-200 hover:bg-stone-50/50 transition-colors flex flex-col md:flex-row md:items-center justify-between" style="transition-delay: 100ms;">
+                        <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12 w-full md:w-3/4">
+                            <span class="font-mono text-sm text-stone-400">2026.03.22</span>
+                            <span class="text-[10px] tracking-widest font-bold border border-stone-300 px-2 py-0.5 rounded text-stone-500 uppercase">助成金</span>
+                            <h3 class="text-lg md:text-xl font-medium font-serif-jp group-hover:text-stone-600 transition-colors">
+                                キャリアアップ助成金のコース再編と申請のポイント
+                            </h3>
+                        </div>
+                        <div class="mt-4 md:mt-0 opacity-100 flex gap-4 items-center justify-end w-full md:w-auto">
+                            <button onclick="handleInsightSummary('キャリアアップ助成金のコース再編と申請のポイント')" class="text-xs font-semibold px-4 py-2 rounded-full bg-stone-900 text-[#FDFCF8] hover:bg-stone-700 transition-colors flex items-center whitespace-nowrap shadow-sm">
+                                ✨ AI影響分析
+                            </button>
+                            <a href="#" class="opacity-0 group-hover:opacity-100 transform translate-x-[-20px] group-hover:translate-x-0 transition-all duration-300 hidden md:block">
+                                <i data-lucide="arrow-right" class="text-stone-900"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Insight item 3 -->
+                    <div class="reveal-item group block py-8 border-b border-stone-200 hover:bg-stone-50/50 transition-colors flex flex-col md:flex-row md:items-center justify-between" style="transition-delay: 200ms;">
+                        <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-12 w-full md:w-3/4">
+                            <span class="font-mono text-sm text-stone-400">2026.02.10</span>
+                            <span class="text-[10px] tracking-widest font-bold border border-stone-300 px-2 py-0.5 rounded text-stone-500 uppercase">お知らせ</span>
+                            <h3 class="text-lg md:text-xl font-medium font-serif-jp group-hover:text-stone-600 transition-colors">
+                                「健康経営優良法人2026」認定サポートを開始しました
+                            </h3>
+                        </div>
+                        <div class="mt-4 md:mt-0 opacity-100 flex gap-4 items-center justify-end w-full md:w-auto">
+                            <button onclick="handleInsightSummary('「健康経営優良法人2026」認定サポートを開始しました')" class="text-xs font-semibold px-4 py-2 rounded-full bg-stone-900 text-[#FDFCF8] hover:bg-stone-700 transition-colors flex items-center whitespace-nowrap shadow-sm">
+                                ✨ AI影響分析
+                            </button>
+                            <a href="#" class="opacity-0 group-hover:opacity-100 transform translate-x-[-20px] group-hover:translate-x-0 transition-all duration-300 hidden md:block">
+                                <i data-lucide="arrow-right" class="text-stone-900"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- -->
+        <!-- Contact / CTA Section -->
+        <section id="contact" class="py-24 px-6 md:px-12 bg-stone-100 relative overflow-hidden border-t border-stone-200">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-stone-200 rounded-full blur-3xl opacity-40 -mr-48 -mt-48 pointer-events-none"></div>
+            
+            <div class="container mx-auto max-w-5xl text-center">
+                <div class="reveal-item">
+                    <h2 class="font-display text-5xl md:text-8xl mb-8 tracking-tight text-stone-900 font-light leading-none">
+                        Let's Build <br>
+                        <span class="italic text-stone-400">Solid</span> Future.
+                    </h2>
+                </div>
+                <div class="reveal-item" style="transition-delay: 200ms;">
+                    <p class="text-stone-600 mb-12 max-w-3xl mx-auto font-sans-jp text-base md:text-lg font-light leading-relaxed text-justify md:text-center tracking-[-0.015em]">
+                        2026年10月の独立開業・新規事業立ち上げに伴い、一足早く<span class="text-[#D93535] inline-block whitespace-nowrap font-bold">【先行無料相談・新事業アライアンス受付】</span>を開始いたしました。新体制だからこそできる、フットワークの軽さと、一社一社に深くコミットする高品質な組織設計プランをご提案します。
+                    </p>
+                </div>
+                <div class="reveal-item" style="transition-delay: 400ms;">
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                        <button class="bg-stone-900 text-white px-10 py-5 rounded-full font-medium text-sm tracking-widest uppercase hover:bg-stone-800 transition-all hover:scale-105 shadow-xl shadow-stone-200 font-sans-jp">
+                            無料相談・先行予約はこちら
+                        </button>
+                        <button class="px-10 py-5 rounded-full font-medium text-sm tracking-widest border border-stone-300 hover:border-stone-900 bg-transparent transition-colors font-sans-jp">
+                            03-1234-5678
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 py-16 px-6 md:px-12 border-t border-stone-900">
+        <div class="container mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+          <div>
+            <div class="text-xl md:text-2xl font-serif-jp text-white mb-6">坂田徹社労士事務所</div>
+            <address class="not-italic text-sm leading-7 font-sans-jp text-stone-400 font-light">
+              〒100-0005<br />
+              東京都千代田区丸の内1-1-1<br />
+              坂田徹社会保険労務士事務所
+            </address>
+          </div>
+          
+          <div class="flex gap-8 text-xs font-semibold tracking-widest uppercase text-stone-500">
+            <a href="#" class="hover:text-white transition-colors">Instagram</a>
+            <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+            <a href="#" class="hover:text-white transition-colors">Twitter</a>
+          </div>
+
+          <div class="text-xs text-stone-600 text-right w-full md:w-auto font-sans-jp font-light">
+            © 2026 SAKATA Labor & Social Security Attorneys. <br class="md:hidden"/> All Rights Reserved.
+          </div>
+        </div>
+    </footer>
+    
+    <!-- Modal for LLM Results -->
+    <div id="ai-modal" class="fixed inset-0 z-[60] bg-stone-900/50 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-[#FDFCF8] rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-8 transform transition-all duration-300 border border-stone-200">
+            <div class="flex justify-between items-start border-b border-stone-200 pb-4 mb-4">
+                <h3 id="modal-title" class="text-lg font-serif-jp font-semibold text-[#1a1917] pr-10">AIによる情報処理中...</h3>
+                <button onclick="closeModal()" class="text-stone-500 hover:text-[#1a1917]">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <!-- Loading Indicator -->
+            <div id="modal-loader" class="flex flex-col items-center justify-center h-48">
+                <svg class="animate-spin h-8 w-8 text-stone-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <p class="mt-4 text-xs font-semibold text-stone-500 tracking-wider font-sans-jp">AIが分析を生成中です...</p>
+            </div>
+
+            <!-- Content Area -->
+            <div id="modal-content" class="whitespace-pre-wrap text-stone-700 leading-relaxed font-sans-jp font-light text-sm md:text-base hidden">
+                <!-- Dynamic Content Injection -->
+            </div>
+            
+            <button onclick="closeModal()" class="mt-6 w-full bg-stone-900 text-white py-3 rounded-full hover:bg-stone-700 transition-colors text-xs font-semibold tracking-wider font-sans-jp">
+                閉じる
+            </button>
+        </div>
+    </div>
+
+    <!-- -->
+    <!-- Scripts & Dynamic Interactivity -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Reveal Animations on Scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.reveal-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            items.forEach(item => {
+                observer.observe(item);
+            });
+        });
+
+        // Sticky Header scroll styling
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.remove('py-8', 'bg-transparent');
+                header.classList.add('py-4', 'bg-[#FDFCF8]/95', 'backdrop-blur-md', 'border-b', 'border-stone-200');
+            } else {
+                header.classList.add('py-8', 'bg-transparent');
+                header.classList.remove('py-4', 'bg-[#FDFCF8]/95', 'backdrop-blur-md', 'border-b', 'border-stone-200');
+            }
+        });
+
+        // Mobile Menu Toggling
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('translate-x-0');
+            if (isOpen) {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            } else {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+                menuIcon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+
+        // Close mobile menu on clicking any navigation link
+        document.querySelectorAll('.menu-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // Carousel / Slideshow Controller
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#slides-container .slide');
+        const dots = document.querySelectorAll('#dot-indicators .dot');
+
+        function updateSlides() {
+            slides.forEach((slide, idx) => {
+                if (idx === currentSlide) {
+                    slide.classList.remove('opacity-0', 'z-0');
+                    slide.classList.add('opacity-100', 'z-10');
+                } else {
+                    slide.classList.remove('opacity-100', 'z-10');
+                    slide.classList.add('opacity-0', 'z-0');
+                }
+            });
+
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlide) {
+                    dot.classList.add('bg-white', 'scale-125');
+                    dot.classList.remove('bg-white/40');
+                } else {
+                    dot.classList.remove('bg-white', 'scale-125');
+                    dot.classList.add('bg-white/40');
+                }
+            });
+        }
+
+        document.getElementById('prev-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlides();
+        });
+
+        document.getElementById('next-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlides();
+        });
+
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                currentSlide = idx;
+                updateSlides();
+            });
+        });
+
+        // Auto-run slide carousel every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlides();
+        }, 5000);
+
+        // Fail-safe image resolvers (Stages 1 and 2 of portrait resolution fallback)
+        const DRIVE_IMAGE_ID = "1UI5X2qMU9FFEvEAhtqaRPq6rV1Pf4cFF";
+        let imageLoadStage = 0;
+
+        function handleImageError(slideId) {
+            if (slideId === 'hero-img-slide-1') {
+                const img = document.getElementById('hero-img-slide-1');
+                if (imageLoadStage === 0 && DRIVE_IMAGE_ID) {
+                    imageLoadStage = 1;
+                    img.src = `https://drive.google.com/uc?export=view&id=${DRIVE_IMAGE_ID}`;
+                } else if (imageLoadStage === 1) {
+                    imageLoadStage = 2;
+                    img.src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800";
+                }
+            } else if (slideId === 'hero-img-slide-2') {
+                const img = document.getElementById('hero-img-slide-2');
+                img.src = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800";
+            }
+        }
+
+        document.getElementById('hero-img-slide-1').addEventListener('error', () => handleImageError('hero-img-slide-1'));
+        document.getElementById('hero-img-slide-2').addEventListener('error', () => handleImageError('hero-img-slide-2'));
+
+        // Gemini API Configuration
+        const API_KEY = ""; 
+        const API_URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/";
+        const MODEL_NAME = "gemini-2.5-flash-preview-09-2025";
+        const API_URL = `${API_URL_BASE}${MODEL_NAME}:generateContent?key=${API_KEY}`;
+        const MAX_RETRIES = 5;
+
+        // Modal triggers
+        const modal = document.getElementById('ai-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalLoader = document.getElementById('modal-loader');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal(title, text, loading = false) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            modalTitle.innerText = title;
+            modalContent.innerText = text;
+            
+            if (loading) {
+                modalLoader.classList.remove('hidden');
+                modalContent.classList.add('hidden');
+            } else {
+                modalLoader.classList.add('hidden');
+                modalContent.classList.remove('hidden');
+            }
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Gemini Generation API Client with fetch call logic
+        async function callGeminiApi(userQuery, systemPrompt, useSearch = true) {
+            openModal('AIによる情報処理中...', 'AIが最適な情報を分析・生成中です。しばらくお待ちください...', true);
+            
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: systemPrompt ? { parts: [{ text: systemPrompt }] } : undefined,
+                tools: useSearch ? [{ "google_search": {} }] : undefined,
+            };
+
+            let attempt = 0;
+            while (attempt < MAX_RETRIES) {
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        if (response.status === 429 && attempt < MAX_RETRIES - 1) {
+                            const delay = Math.pow(2, attempt) * 1000 + Math.random() * 1000;
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            attempt++;
+                            continue;
+                        }
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        const text = candidate.content.parts[0].text;
+                        
+                        let sources = [];
+                        const groundingMetadata = candidate.groundingMetadata;
+                        if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                            sources = groundingMetadata.groundingAttributions
+                                .map(attribution => ({
+                                    uri: attribution.web?.uri,
+                                    title: attribution.web?.title,
+                                }))
+                                .filter(source => source.uri && source.title);
+                        }
+
+                        return { text, sources };
+                    } else {
+                        throw new Error("Invalid response structure or no content generated.");
+                    }
+
+                } catch (error) {
+                    console.error("Gemini API call failed:", error);
+                    openModal('エラーが発生しました', `情報の生成中に問題が発生しました：${error.message}`);
+                    return null;
+                }
+            }
+            openModal('エラーが発生しました', '複数回の試行後にAPI呼び出しに失敗しました。時間をおいて再度お試しください。');
+            return null;
+        }
+
+        // Action handles for UI element dynamic triggers
+        async function handleServiceBenefit(title) {
+            const userQuery = `${title}サービスが、顧客企業のKPI（例：定着率、コンプライアンス遵守率、採用コスト削減）に与える具体的なメリットを、箇ため書きで5つ、日本語で生成してください。`;
+            const systemPrompt = "あなたは社会保険労務士法人のマーケティング担当者であり、顧客の経営課題解決に直結する専門的なメリットを、明確かつ説得力のある言葉で提示してください。";
+            
+            const response = await callGeminiApi(userQuery, systemPrompt, false);
+            if (response) {
+                openModal(`✨ ${title} が貴社にもたらす具体的メリット`, response.text);
+            }
+        }
+
+        async function handleInsightSummary(title) {
+            const userQuery = `ニュース記事のタイトル: "${title}"。この法改正/ニュースが、日本の中小企業に与える具体的な影響と、経営者が今すぐ取るべきアクションを、専門的な視点から簡潔に要約し、日本語で提示してください。`;
+            const systemPrompt = "あなたは社会保険労務士法人のチーフコンサルタントであり、最新 of 法改正情報を、企業経営者に向けた実務的で分かりやすいアドバイスとしてまとめてください。";
+
+            const response = await callGeminiApi(userQuery, systemPrompt, true);
+            if (response) {
+                let content = response.text;
+                if (response.sources && response.sources.length > 0) {
+                    content += "\n\n--- 情報源 ---";
+                    response.sources.forEach((source, index) => {
+                        content += `\n[${index + 1}] ${source.title} (${source.uri})`;
+                    });
+                }
+                openModal(`✨ 【${title}】企業影響サマリー`, content);
+            }
+        }
+    </script>
+</body>
+</html>
